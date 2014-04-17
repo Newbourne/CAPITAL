@@ -1,0 +1,65 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:CAPITAL="clr-namespace:CAPITAL" 
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:myControls="clr-namespace:CAPITAL.Controls;assembly=CAPITAL.Controls"
+    xmlns:fxControls="clr-namespace:Phone7.Fx.Controls;assembly=Phone7.Fx" 
+	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+   	xmlns:behaviors="clr-namespace:CAPITAL.Controls.Behaviors;assembly=CAPITAL.Controls"
+    x:Class="CAPITAL.Views.NewUserView"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    DataContext="{Binding NewUserView, Source={StaticResource Locator}}"
+    Foreground="{StaticResource AppAccentColor1}"
+	shell:SystemTray.IsVisible="False">
+    <myControls:BusyIndicator IsBusy="{Binding Path=IsBusy}" BusyText="Loading">
+        <!--LayoutRoot is the root grid where all page content is placed-->
+        <Grid x:Name="LayoutRoot" 
+              Background="{StaticResource AppBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="1" Width="425" 
+			VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0">
+            	<TextBlock Text="All Aboard!" Style="{StaticResource AppHeaderTextBlockStyle}" />
+                <TextBlock Text="Email" Style="{StaticResource AppCaptionTextBlockStyle}" />
+                <TextBox Text="{Binding Email, Mode=TwoWay}" 
+					Style="{StaticResource AppTextBoxStyle}">
+                	<i:Interaction.Behaviors>
+                    	<behaviors:TextBoxBehavior />
+                    </i:Interaction.Behaviors>
+                </TextBox>
+                <TextBlock Text="Password" Style="{StaticResource AppCaptionTextBlockStyle}" />
+                <PasswordBox Password="{Binding Password, Mode=TwoWay}" 
+					Style="{StaticResource AppPasswordBoxStyle}">
+                	<i:Interaction.Behaviors>
+                    	<behaviors:PasswordBoxBehavior />
+                    </i:Interaction.Behaviors>
+                </PasswordBox>
+				<TextBlock Text="Confirm Password" Style="{StaticResource AppCaptionTextBlockStyle}" />
+                <PasswordBox Password="{Binding ConfirmPassword, Mode=TwoWay}" Style="{StaticResource AppPasswordBoxStyle}">
+                    <i:Interaction.Behaviors>
+                    	<behaviors:PasswordBoxBehavior />
+                    </i:Interaction.Behaviors>
+                </PasswordBox>
+            </StackPanel>
+            <fxControls:BindableApplicationBar 
+                    BarOpacity="100"
+					BackgroundColor="{StaticResource BackgroundColor}"
+				    ForegroundColor="{StaticResource AccentColor1}"
+				    HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <fxControls:BindableApplicationBarIconButton 
+                    Command="{Binding CreateUserCommand, Mode=OneWay}"
+                    IconUri="/icons/appbar.check.rest.png"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource BooleanNegateConverter}}"
+                    Text="Create" />
+            </fxControls:BindableApplicationBar>
+        </Grid>
+    </myControls:BusyIndicator>
+</phone:PhoneApplicationPage>

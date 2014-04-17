@@ -1,0 +1,64 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:myControls="clr-namespace:CAPITAL.Controls;assembly=CAPITAL.Controls"
+    xmlns:fxControls="clr-namespace:Phone7.Fx.Controls;assembly=Phone7.Fx" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:behaviors="clr-namespace:CAPITAL.Controls.Behaviors;assembly=CAPITAL.Controls"
+    x:Class="CAPITAL.Views.LoginView"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    DataContext="{Binding LoginView, Source={StaticResource Locator}}"
+    Background="{StaticResource AppBackground}"
+    Foreground="{StaticResource AppAccentColor1}"
+	shell:SystemTray.IsVisible="False" 
+    x:Name="Login" mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480" >
+    <myControls:BusyIndicator IsBusy="{Binding IsBusy}" BusyText="Loading">
+	    <Grid x:Name="LayoutRoot" Background="{StaticResource AppBackground}">
+	        <Grid.RowDefinitions>
+	            <RowDefinition Height="Auto"/>
+	        </Grid.RowDefinitions>
+                <StackPanel Width="425"
+					VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0">
+	        	    <TextBlock 
+						Style="{StaticResource AppHeaderTextBlockStyle}" 
+						Text="Welcome!"/>
+				    <TextBlock Text="Email" Style="{StaticResource AppCaptionTextBlockStyle}"/>
+                    <TextBox Text="{Binding Email, Mode=TwoWay}" Style="{StaticResource AppTextBoxStyle}">
+                        <i:Interaction.Behaviors>
+                            <behaviors:TextBoxBehavior />
+                        </i:Interaction.Behaviors>
+                    </TextBox>
+                    <TextBlock Text="Password" Style="{StaticResource AppCaptionTextBlockStyle}"/>
+                    <PasswordBox 
+						Password="{Binding Password, Mode=TwoWay}" Style="{StaticResource AppPasswordBoxStyle}" >
+                    <i:Interaction.Behaviors>
+                        <behaviors:PasswordBoxBehavior />
+                    </i:Interaction.Behaviors>
+                </PasswordBox>
+            </StackPanel>
+            <!--IsVisible="{Binding IsBusy, Converter={StaticResource BooleanNegateConverter}}" -->
+            <fxControls:BindableApplicationBar 
+					IsEnabled="{Binding IsBusy}"
+                    BarOpacity="100"
+                    BackgroundColor="{StaticResource BackgroundColor}"
+				    ForegroundColor="{StaticResource AccentColor1}"
+				    HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <fxControls:BindableApplicationBarIconButton x:Name="loginButton" 
+					    Text="login"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource BooleanNegateConverter}}"
+					    IconUri="/icons/appbar.check.rest.png"
+					    Command="{Binding LoginCommand, Mode=OneWay}"/>
+                    <fxControls:BindableApplicationBarIconButton x:Name="newUserButton" 
+	                    IconUri="/icons/appbar.add.rest.png" 
+	                    Command="{Binding NewUserCommand, Mode=OneWay}" 
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource BooleanNegateConverter}}"
+	                    Text="new" />
+                </fxControls:BindableApplicationBar>
+            </Grid>
+	</myControls:BusyIndicator>
+</phone:PhoneApplicationPage>

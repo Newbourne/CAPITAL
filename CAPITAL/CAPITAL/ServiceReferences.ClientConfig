@@ -1,0 +1,17 @@
+﻿<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="basic" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647"
+                 receiveTimeout="00:15:00" sendTimeout="00:15:00" openTimeout="00:15:00" closeTimeout="00:15:00">
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://localhost/CAPITAL.WCF/CapitalService.svc"
+          binding="basicHttpBinding" bindingConfiguration="basic" contract="CapitalService.ICapitalService"
+          name="basic" />
+    </client>
+  </system.serviceModel>
+</configuration>

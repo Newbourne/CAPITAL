@@ -1,0 +1,22 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="CAPITAL.LoadingScreen"
+    Width="480"
+    Height="800"
+	d:DesignWidth="480" d:DesignHeight="800">
+    <!-- Resource Styles Do Not Work Here-->
+    <Grid x:Name="LayoutRoot" Background="#FF090C12"> 
+    	<StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,200,0,0">
+    		<TextBlock 
+				Text="CAPITAL" 
+				Foreground="#FF2C8713"
+				HorizontalAlignment="Center"
+				FontFamily="/CAPITAL;component/Fonts/Fonts.zip#Showcard Gothic" FontSize="64"/>
+        	<ProgressBar IsIndeterminate="True" Foreground="#FF2C8713" />
+		</StackPanel>
+	</Grid>
+</UserControl>

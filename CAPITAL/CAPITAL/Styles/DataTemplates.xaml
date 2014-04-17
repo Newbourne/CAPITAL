@@ -1,0 +1,265 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:Phone7_Fx_Triggers="clr-namespace:Phone7.Fx.Triggers;assembly=Phone7.Fx">
+    
+	<!-- Panorama Control Headers -->
+	<DataTemplate x:Key="PanoramaHeaderTemplate">
+		<ContentPresenter>
+            <TextBlock Height="0" 
+				Text="{Binding}" 
+				Foreground="{StaticResource AppAccentColor1}"/>
+		</ContentPresenter>
+	</DataTemplate>
+
+	<DataTemplate x:Key="DefaultHeaderTemplate">
+		<ContentPresenter>
+            <TextBlock 
+				Style="{StaticResource AppHeaderTextBlockStyle}"
+				Text="{Binding}" Margin="-10,0,0,0"/>
+		</ContentPresenter>
+	</DataTemplate>
+	
+	<!-- Toggle Switch -->
+	<DataTemplate x:Key="toggleHeaderTemplate">
+		<ContentPresenter>
+			<TextBlock Text="{Binding}" 
+				Style="{StaticResource AppCaptionTextBlockStyle}" 
+				Margin="-10,0,0,0"/>
+		</ContentPresenter>
+	</DataTemplate>
+	
+	<DataTemplate x:Key="toggleHeaderTemplateSmall">
+		<ContentPresenter>
+			<TextBlock Grid.ColumnSpan="2" Text="{Binding}" 
+				Style="{StaticResource AppCaptionTextBlockStyle}" 
+				Width="400"
+				Margin="0,0,0,0" TextWrapping="Wrap"/>
+		</ContentPresenter>
+	</DataTemplate>
+	
+	<DataTemplate x:Key="toggleContentTemplate">
+		<ContentPresenter>
+			<TextBlock Text="{Binding}" 
+				Style="{StaticResource AppHeaderTextBlockStyle}" 
+				FontSize="35"
+				FontFamily="Segoe WP Semibold"/>
+		</ContentPresenter>
+	</DataTemplate>
+	
+	<!-- Toggle Switch -->
+	<DataTemplate x:Key="DatePickerHeaderTemplate">
+		<ContentPresenter>
+			<TextBlock Text="{Binding}" 
+				Style="{StaticResource AppCaptionTextBlockStyle}" 
+				Margin="-25 0 0 0"/>
+		</ContentPresenter>
+	</DataTemplate>
+	
+	<!-- Frequency ListPicker Templates -->
+	<DataTemplate x:Key="ListPickerHeaderTemplate">
+            <TextBlock Text="{Binding}" 
+                       Style="{StaticResource AppCaptionTextBlockStyle}" 
+                       Margin="-25 0 0 0"/>
+    </DataTemplate>
+	
+	<DataTemplate x:Key="freqFullModeItemTemplate">
+		<Border x:Name="LayoutRoot" Style="{StaticResource AppBorder}" Margin="0">
+    		<StackPanel Orientation="Vertical" 
+				HorizontalAlignment="Center" 
+				Margin="0">
+    			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+    				<TextBlock FontSize="40" Text="{Binding Days}" FontFamily="{StaticResource AppCaptionFont}"/>
+					<TextBlock FontSize="20" Text="days" FontFamily="{StaticResource AppCaptionFont}"/>
+				</StackPanel>
+            	<TextBlock FontSize="26" Text="{Binding Name}" HorizontalAlignment="Center" FontFamily="{StaticResource AppCaptionFont}" />	                    	
+			</StackPanel>
+		</Border>
+   	</DataTemplate>
+	
+	<DataTemplate x:Key="ListPickerItemTemplate">
+    	<StackPanel Orientation="Horizontal">
+        	<TextBlock Text="{Binding}" Margin="0" 
+                       />             	
+		</StackPanel>
+    </DataTemplate>
+	
+	<DataTemplate x:Key="freqItemTemplate">
+    	<StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Name}"/>             	
+		</StackPanel>
+    </DataTemplate>
+	
+	
+	<!-- Account Templates -->
+	<DataTemplate x:Key="AccountTemplate">
+    	<Grid>
+        	<Grid.RowDefinitions>
+            	<RowDefinition />
+                <RowDefinition Height="*"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100"/>
+				<ColumnDefinition Width="125"/>
+				<ColumnDefinition Width="125"/>
+			</Grid.ColumnDefinitions>
+				
+			<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  
+				Text="{Binding Path=AccountName}" 
+				TextAlignment="Left" 
+				Style="{StaticResource AppListBoxItemHeaderTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+				Text="Payment:" 
+				TextAlignment="Left"
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="2" 
+				Text="{Binding Path=DefaultPayment, StringFormat=c}" TextAlignment="Right"
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="1" 
+				Text="Balance:" 
+				TextAlignment="Left"
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="2" 
+				Text="{Binding Path=Balance, StringFormat=c}" 
+				TextAlignment="Right" 
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+        </Grid>
+	</DataTemplate>
+
+
+    <!-- Account Type Templates -->
+    <DataTemplate x:Key="AccountTypeTemplate">
+        <StackPanel Orientation="Vertical" Margin="15">
+            <TextBlock 
+				Text="{Binding Path=Name}" 
+				TextAlignment="Left" 
+				Style="{StaticResource AppHeaderTextBlockStyle}"/>
+
+            <TextBlock 
+				Text="{Binding Path=Description}" 
+				TextAlignment="Left"
+				Style="{StaticResource AppCaptionSmallTextBlockStyle}" TextWrapping="Wrap"/>
+
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AccountOwnerTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
+				Text="{Binding Path=AccountName}" 
+				TextAlignment="Left" 
+				Style="{StaticResource AppListBoxItemHeaderTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" 
+				Text="{Binding Path=Type}" 
+				TextAlignment="Center" 
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+				Text="Payment:" 
+				TextAlignment="Left"
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="2" 
+				Text="{Binding Path=Payment, StringFormat=c}" 
+				TextAlignment="Right"
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+        </Grid>
+    </DataTemplate>
+	
+	<DataTemplate x:Key="StatementTemplate">
+    	<Grid>
+        	<Grid.RowDefinitions>
+            	<RowDefinition />
+                <RowDefinition Height="*"/>
+                <RowDefinition />
+           	</Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+            </Grid.ColumnDefinitions>
+			<!-- DOES NOT WORK IN DATATEMPLATES.xaml -->
+            <!--<toolkit:ContextMenuService.ContextMenu>
+            	<toolkit:ContextMenu Foreground="White" IsZoomEnabled="False">
+                	<toolkit:MenuItem Header="Pin Tile" Click="MenuItem_Click"/>
+            	</toolkit:ContextMenu>
+            </toolkit:ContextMenuService.ContextMenu>-->
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
+				Text="{Binding Path=AccountName}" 
+				Style="{StaticResource AppListBoxItemHeaderTextBlockStyle}" />
+
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+				Text="Payment:" TextAlignment="Right" 
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="2" 
+				Text="{Binding Path=Balance, StringFormat=c}" 
+				TextAlignment="Right" Style="{StaticResource AppContentTextBlockStyle}"/>
+                        
+            <TextBlock Grid.Row="2" Grid.Column="1" 
+				Text="Due Date:" TextAlignment="Right" 
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="2" 
+				Text="{Binding Path=DueDate, StringFormat=m}" 
+				TextAlignment="Right" Style="{StaticResource AppContentTextBlockStyle}"/>
+	    </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="RecentStatementTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="*"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <!-- DOES NOT WORK IN DATATEMPLATES.xaml -->
+            <!--<toolkit:ContextMenuService.ContextMenu>
+            	<toolkit:ContextMenu Foreground="White" IsZoomEnabled="False">
+                	<toolkit:MenuItem Header="Pin Tile" Click="MenuItem_Click"/>
+            	</toolkit:ContextMenu>
+            </toolkit:ContextMenuService.ContextMenu>-->
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
+				Text="{Binding Path=Account}" 
+				Style="{StaticResource AppListBoxItemHeaderTextBlockStyle}" />
+
+            <TextBlock Grid.Row="1" Grid.Column="0" 
+				Text="Payment:" TextAlignment="Right" 
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" 
+				Text="Due Date:" TextAlignment="Right" 
+				Style="{StaticResource AppContentTextBlockStyle}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+				Text="{Binding Path=Source.PaidAmount, StringFormat=c}" 
+				TextAlignment="Right" Style="{StaticResource AppContentTextBlockStyle}"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" 
+				Text="{Binding Path=Source.PaidDate, StringFormat=m}" 
+				TextAlignment="Right" Style="{StaticResource AppContentTextBlockStyle}"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

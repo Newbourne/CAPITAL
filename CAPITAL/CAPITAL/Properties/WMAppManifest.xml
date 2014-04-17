@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{1f90fed8-55ad-4fd1-9b55-4c0bba3250ad}" Title="CAPITAL" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="CAPITAL author" Description="Sample description" Publisher="CAPITAL">
+    <IconPath IsRelative="true" IsResource="false">Images\Capital.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+      <Capability Name="ID_CAP_IDENTITY_USER" />
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
+      <Capability Name="ID_CAP_APPOINTMENTS" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="/Views/MainView.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="CAPITALToken" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Images\Capital.png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>CAPITAL</Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>

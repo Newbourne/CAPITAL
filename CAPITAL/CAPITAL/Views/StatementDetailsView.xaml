@@ -1,0 +1,98 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="CAPITAL.Views.StatementDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:myControls="clr-namespace:CAPITAL.Controls;assembly=CAPITAL.Controls"
+    xmlns:fxControls="clr-namespace:Phone7.Fx.Controls;assembly=Phone7.Fx" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:behaviors="clr-namespace:CAPITAL.Controls.Behaviors;assembly=CAPITAL.Controls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource AppAccentColor1}"
+    DataContext="{Binding StatementViewer, Source={StaticResource Locator}}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False">
+
+    <myControls:BusyIndicator IsBusy="{Binding IsBusy}" BusyText="Loading">
+        <Grid 	x:Name="LayoutRoot" 
+				Background="{StaticResource AppBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{Binding Title}" 		
+				Style="{StaticResource AppHeaderTextBlockStyle}"
+				Margin="15,0,15,0"/>
+
+            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="15,0,15,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Vertical">
+                    <TextBlock Text="Projected Payment" Style="{StaticResource AppCaptionTextBlockStyle}"/>
+                    <TextBox Style="{StaticResource AppTextBoxStyle}"
+						Text="{Binding Balance, Mode=TwoWay}" 
+						InputScope="CurrencyAmount">
+                        <i:Interaction.Behaviors>
+                            <behaviors:TextBoxSelectionBehavior />
+                        </i:Interaction.Behaviors>
+                    </TextBox>
+
+                    <TextBlock Text="Projected Due Date" Style="{StaticResource AppCaptionTextBlockStyle}" />
+                    <Border Background="{StaticResource AppAccentColor1}" Style="{StaticResource AppBorder}" >
+                        <toolkit:DatePicker 
+							Background="{StaticResource AppAccentColor1}"
+							Margin="-12"
+							Value="{Binding DueDate, Mode=TwoWay}" 
+							ValueStringFormat="{}{0:M}"/>
+                    </Border>
+                    <TextBlock Text="Amount" Style="{StaticResource AppCaptionTextBlockStyle}"/>
+                    <TextBox Style="{StaticResource AppTextBoxStyle}"
+						Text="{Binding PaidAmount, Mode=TwoWay}" 
+                        InputScope="CurrencyAmount">
+                        <i:Interaction.Behaviors>
+                            <behaviors:TextBoxSelectionBehavior />
+                        </i:Interaction.Behaviors>
+                    </TextBox>
+
+                    <TextBlock Text="Paid Date" Style="{StaticResource AppCaptionTextBlockStyle}" />
+                    <Border Background="{StaticResource AppAccentColor1}" Style="{StaticResource AppBorder}" >
+                        <toolkit:DatePicker 
+							Background="{StaticResource AppAccentColor1}"
+							Margin="-12"
+						 	Value="{Binding PaidDate, Mode=TwoWay}" 
+							ValueStringFormat="{}{0:M}"/>
+                    </Border>
+                    <toolkit:ToggleSwitch Grid.Row="1" x:Name="statementIsPaidToggleSwitch"
+						Content="{Binding Status, Mode=TwoWay}" IsChecked="{Binding IsPaid, Mode=TwoWay}"
+						Padding="0" Margin="0" 
+						Header="Status"
+						HeaderTemplate="{StaticResource toggleHeaderTemplate}"
+						Foreground="{StaticResource AppAccentColor1}" 
+						Background="{StaticResource AppBackground}" 
+						SwitchForeground="{StaticResource AppAccentColor1}"/>
+                </StackPanel>
+                <fxControls:BindableApplicationBar 
+					BackgroundColor="{StaticResource BackgroundColor}"
+				    ForegroundColor="{StaticResource AccentColor1}"
+				    HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <fxControls:BindableApplicationBarIconButton
+				        Text="save"
+				        IconUri="/icons/appbar.save.rest.png"
+				        Command="{Binding StatementSaveCommand}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource BooleanNegateConverter}}"/>
+                    <fxControls:BindableApplicationBarMenuItem
+                        Text="Pin To Start" Command="{Binding PinCommand}" />
+                </fxControls:BindableApplicationBar>
+            </Grid>
+        </Grid>
+    </myControls:BusyIndicator>
+</phone:PhoneApplicationPage>

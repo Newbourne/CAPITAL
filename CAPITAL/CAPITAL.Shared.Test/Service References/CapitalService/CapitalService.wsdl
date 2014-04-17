@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CapitalService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/CAPITAL.WCF/CapitalService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/CAPITAL.WCF/CapitalService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" />
+      <xsd:import schemaLocation="http://localhost/CAPITAL.WCF/CapitalService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICapitalService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_CreateUser_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q1:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_Login_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q2:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccounts" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetAccounts_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q3:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_CreateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccount" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_CreateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_CreateAccount_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q4:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_UpdateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccount" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_UpdateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_UpdateAccount_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q5:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_DeleteAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_DeleteAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_DeleteAccount_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q6:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_ShareAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShareAccount" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_ShareAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShareAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_ShareAccount_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q7:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetStatements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatements" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetStatements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetStatements_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q8:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetStatementById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementById" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetStatementById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetStatementById_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q9:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_UpdateStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStatement" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_UpdateStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_UpdateStatement_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q10:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetRecentActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecentActivity" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetRecentActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecentActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetRecentActivity_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q11:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetFrequencies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFrequencies" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetFrequencies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFrequenciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_GetFrequencies_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q12:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendFeedback_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendFeedback" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendFeedback_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendFeedback_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q13:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_Register_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q14:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendTile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendTile" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendTile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendTileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendTile_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q15:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendEmail_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q16:CapitalError" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendToast_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendToast" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendToast_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendToastResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICapitalService_SendToast_CapitalErrorFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/CAPITAL.ORM.Objects" name="detail" element="q17:CapitalError" />
+  </wsdl:message>
+  <wsdl:portType name="ICapitalService">
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/CreateUser" message="tns:ICapitalService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/CreateUserResponse" message="tns:ICapitalService_CreateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/CreateUserCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_CreateUser_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/Login" message="tns:ICapitalService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/LoginResponse" message="tns:ICapitalService_Login_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/LoginCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_Login_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/GetAccounts" message="tns:ICapitalService_GetAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/GetAccountsResponse" message="tns:ICapitalService_GetAccounts_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/GetAccountsCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_GetAccounts_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/CreateAccount" message="tns:ICapitalService_CreateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/CreateAccountResponse" message="tns:ICapitalService_CreateAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/CreateAccountCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_CreateAccount_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/UpdateAccount" message="tns:ICapitalService_UpdateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/UpdateAccountResponse" message="tns:ICapitalService_UpdateAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/UpdateAccountCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_UpdateAccount_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/DeleteAccount" message="tns:ICapitalService_DeleteAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/DeleteAccountResponse" message="tns:ICapitalService_DeleteAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/DeleteAccountCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_DeleteAccount_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShareAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/ShareAccount" message="tns:ICapitalService_ShareAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/ShareAccountResponse" message="tns:ICapitalService_ShareAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/ShareAccountCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_ShareAccount_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatements">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/GetStatements" message="tns:ICapitalService_GetStatements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/GetStatementsResponse" message="tns:ICapitalService_GetStatements_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/GetStatementsCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_GetStatements_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/GetStatementById" message="tns:ICapitalService_GetStatementById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/GetStatementByIdResponse" message="tns:ICapitalService_GetStatementById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/GetStatementByIdCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_GetStatementById_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/UpdateStatement" message="tns:ICapitalService_UpdateStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/UpdateStatementResponse" message="tns:ICapitalService_UpdateStatement_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/UpdateStatementCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_UpdateStatement_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/GetRecentActivity" message="tns:ICapitalService_GetRecentActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/GetRecentActivityResponse" message="tns:ICapitalService_GetRecentActivity_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/GetRecentActivityCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_GetRecentActivity_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFrequencies">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/GetFrequencies" message="tns:ICapitalService_GetFrequencies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/GetFrequenciesResponse" message="tns:ICapitalService_GetFrequencies_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/GetFrequenciesCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_GetFrequencies_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFeedback">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/SendFeedback" message="tns:ICapitalService_SendFeedback_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/SendFeedbackResponse" message="tns:ICapitalService_SendFeedback_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/SendFeedbackCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_SendFeedback_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/Register" message="tns:ICapitalService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/RegisterResponse" message="tns:ICapitalService_Register_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/RegisterCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_Register_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/SendTile" message="tns:ICapitalService_SendTile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/SendTileResponse" message="tns:ICapitalService_SendTile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/SendTileCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_SendTile_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/SendEmail" message="tns:ICapitalService_SendEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/SendEmailResponse" message="tns:ICapitalService_SendEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/SendEmailCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_SendEmail_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendToast">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICapitalService/SendToast" message="tns:ICapitalService_SendToast_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICapitalService/SendToastResponse" message="tns:ICapitalService_SendToast_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICapitalService/SendToastCapitalErrorFault" name="CapitalErrorFault" message="tns:ICapitalService_SendToast_CapitalErrorFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basic" type="tns:ICapitalService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccounts">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/GetAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/UpdateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ShareAccount">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/ShareAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatements">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/GetStatements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementById">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/GetStatementById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatement">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/UpdateStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentActivity">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/GetRecentActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrequencies">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/GetFrequencies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendFeedback">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/SendFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendTile">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/SendTile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendToast">
+      <soap:operation soapAction="http://tempuri.org/ICapitalService/SendToast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CapitalErrorFault">
+        <soap:fault use="literal" name="CapitalErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CapitalService">
+    <wsdl:port name="basic" binding="tns:basic">
+      <soap:address location="http://localhost/CAPITAL.WCF/CapitalService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

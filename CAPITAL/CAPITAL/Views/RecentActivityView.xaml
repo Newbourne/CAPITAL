@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="CAPITAL.Views.RecentActivityView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myControls="clr-namespace:CAPITAL.Controls;assembly=CAPITAL.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    DataContext="{Binding RecentActivityView, Source={StaticResource Locator}}"
+    Foreground="{StaticResource AppAccentColor1}"
+    d:DesignHeight="480" d:DesignWidth="480">
+	
+    <myControls:BusyIndicator IsBusy="{Binding Path=IsBusy}" BusyText="Loading">
+        <Grid x:Name="LayoutRoot" Background="{StaticResource AppBackground}">
+            <ListBox Height="675" MaxHeight="675"  
+					 Visibility="{Binding IsEmpty, Converter={StaticResource BooleanNegatedVisibilityConverter}}"
+                     x:Name="StatementListBox" ItemsSource="{Binding Path=Statements, Mode=TwoWay}"
+                     ItemTemplate="{StaticResource RecentStatementTemplate}" ItemContainerStyle="{StaticResource NoSelectListBoxItemStyle}">
+            </ListBox>
+            <TextBlock Visibility="{Binding IsEmpty, Converter={StaticResource BooleanVisibilityConverter}}" 
+                       TextWrapping="Wrap" 
+                       Style="{StaticResource AppContentTextBlockStyle}"
+                       Text="There is no recent activity.."/>
+        </Grid>
+    </myControls:BusyIndicator>
+</UserControl>
