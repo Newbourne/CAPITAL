@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
-using System.Data.Objects.SqlClient;
 using System.Linq;
 using CAPITAL.Engine.Transaction;
 using CAPITAL.ORM;
@@ -10,6 +9,7 @@ using CAPITAL.ORM.Exceptions;
 using CAPITAL.ORM.Objects;
 using CAPITAL.Engine.Utilities;
 using CAPITAL.Engine.Interfaces;
+using System.Data.Entity.SqlServer;
 
 namespace CAPITAL.Engine.Managers
 {

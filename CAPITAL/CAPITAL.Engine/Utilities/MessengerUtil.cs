@@ -7,14 +7,14 @@ using CAPITAL.Engine.Interfaces;
 using CAPITAL.ORM;
 using CAPITAL.ORM.Exceptions;
 using CAPITAL.ORM.Objects;
-using WindowsPhone.Recipes.Push.Messasges;
+//using WindowsPhone.Recipes.Push.Messasges;
 
 namespace CAPITAL.Engine.Utilities
 {
     public class MessengerUtil : Base, IMessengerUtil
     {
-        private TilePushNotificationMessage tilePushNotificationMessage = new TilePushNotificationMessage(MessageSendPriority.High);
-        private ToastPushNotificationMessage toastPushNotificationMessage = new ToastPushNotificationMessage(MessageSendPriority.High);
+        //private TilePushNotificationMessage tilePushNotificationMessage = new TilePushNotificationMessage(MessageSendPriority.High);
+        //private ToastPushNotificationMessage toastPushNotificationMessage = new ToastPushNotificationMessage(MessageSendPriority.High);
 
         public void Register(Registration registration)
         {
@@ -71,9 +71,9 @@ namespace CAPITAL.Engine.Utilities
                     {
                         //http://localhost/CAPITALServices/Tiles/ApplicationIcon.png
 
-                        tilePushNotificationMessage.BackgroundImageUri = new Uri(string.Format("http://services.ilikeitbland.com/Tiles/{0}", name));
+                        //tilePushNotificationMessage.BackgroundImageUri = new Uri(string.Format("http://services.ilikeitbland.com/Tiles/{0}", name));
 
-                        tilePushNotificationMessage.SendAsync(new Uri(subscribers.URI, UriKind.Absolute), (result) => { }, (result) => { });
+                        ///tilePushNotificationMessage.SendAsync(new Uri(subscribers.URI, UriKind.Absolute), (result) => { }, (result) => { });
                     }
                 }
             }
@@ -89,15 +89,15 @@ namespace CAPITAL.Engine.Utilities
             {
                 // Email
                 MailMessage mail = new MailMessage();
-                SmtpClient smtpServer = new SmtpClient("mail.ilikeitbland.com");
+                SmtpClient smtpServer = new SmtpClient("");
 
                 mail.From = new MailAddress(fromUser);
-                mail.To.Add("brian@ILIKEITBLAND.COM");
+                mail.To.Add("");
                 mail.Subject = subject;
                 mail.Body = message;
 
                 smtpServer.Port = 25;
-                smtpServer.Credentials = new System.Net.NetworkCredential("brian@pwb3.com", "$bland#42");
+                smtpServer.Credentials = new System.Net.NetworkCredential("", "");
                 smtpServer.EnableSsl = false;
 
                 smtpServer.Send(mail);
@@ -118,9 +118,9 @@ namespace CAPITAL.Engine.Utilities
 
                     if (registration != null)
                     {
-                        toastPushNotificationMessage.Title = title;
-                        toastPushNotificationMessage.SubTitle = subTitle;
-                        toastPushNotificationMessage.SendAsync(new Uri(registration.URI, UriKind.Absolute), (result) => { }, (result) => { });
+                        //toastPushNotificationMessage.Title = title;
+                        //toastPushNotificationMessage.SubTitle = subTitle;
+                        //toastPushNotificationMessage.SendAsync(new Uri(registration.URI, UriKind.Absolute), (result) => { }, (result) => { });
                     }
                 }
             }
