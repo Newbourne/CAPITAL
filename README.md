@@ -6,6 +6,7 @@ Windows Phone Finance Application (Deprecated)
 Development: Aborted
 
 Start Date: Sometime in 2011
+
 End Date: End of 2013 
 
 ## Why?
