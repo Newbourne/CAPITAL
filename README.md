@@ -40,6 +40,6 @@ I struggle the most in finding a good idea to build upon. The other is maintaini
 
 I learned more by building this application than anything I have done professionally. Getting the hands on experience alone with Dependency Injection and IoC paid dividends later on. I did release a few versions of the application but was (finally) losing favor in Silverlight.
 
-This application has it all in terms of architecture. Database, Service Layer (API) and Client application.
+This application has it all in terms of architecture: Database, Service Layer (API) and Client Application.
 
 I'll try to dig up some screenshots.
