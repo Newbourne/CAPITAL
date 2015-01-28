@@ -26,9 +26,10 @@ I knew Windows Phone 7 ran on Silverlight and felt this was a perfect time to wr
 
 I struggle the most in finding a good idea to build upon. The other is maintaining the passion to complete said idea. I wanted to build something that would apply to my needs. As most people, financing can be a struggle and hard to keep up with. Why not try to make this easier? (I discovered Mint a few months after development started) I continued anyways because I still liked Silerlight and working on this application improved my skills on a professional level. 
 
-(I'll add more details about develop later.)
+(I'll add more details about the development later)
+
 - Silverlight
-- MVVM Pattern
+- MVVM Design Pattern
 - Messaging instead of events
 - WCF
 - Entity Framework
